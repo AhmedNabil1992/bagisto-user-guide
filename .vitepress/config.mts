@@ -68,7 +68,6 @@ function sitemapPlugin() {
     name: "sitemap-plugin",
     apply: "serve",
     configResolved(config) {
-      // Generate sitemap to public folder on server start
       const publicDir = path.join(process.cwd(), "src/public");
       if (!fs.existsSync(publicDir)) {
         fs.mkdirSync(publicDir, { recursive: true });
@@ -79,9 +78,6 @@ function sitemapPlugin() {
   };
 }
 
-// Sidebar group headings. Every top-level group gets an icon, and the two
-// headline groups (Generative AI and Theme) also get their gradient treatment.
-// The styles live in theme/custom.css.
 function groupLabel(label, icon) {
   return `<span class="sb-group sb-icon--${icon}"><span class="sb-group__icon" aria-hidden="true"></span><span class="sb-group__label">${label}</span></span>`;
 }
@@ -90,71 +86,7 @@ function featureLabel(label, feature) {
   return `<span class="sb-feature feature--${feature}"><span class="sb-feature__icon" aria-hidden="true"></span><span class="sb-feature__label">${label}</span></span>`;
 }
 
-export default defineConfig({
-  lang: "en-US",
-  title: "Bagisto User Documentation",
-  description: "Bagisto User Documentation",
-
-  vite: {
-    server: {
-      host: "0.0.0.0",
-    },
-    plugins: [sitemapPlugin()],
-  },
-
-  srcDir: "./src",
-
-  head: [
-    [
-      "meta",
-      {
-        name: "google-site-verification",
-        content: "elxsIWt5ea-SmaO99B5RD3z_35WCl-hLJejTZEfVu4I",
-      },
-    ],
-    ["link", { rel: "icon", type: "image/png", href: "/favicon.ico" }],
-    [
-      "script",
-      {},
-      `window.chatbotConfig = { url: "https://ask.bagisto.com:5000/chat" };`,
-    ],
-    [
-      "script",
-      {
-        src: "https://bagisto.github.io/ai-chatbot/chatbot.js",
-        async: true,
-      },
-    ],
-  ],
-
-  themeConfig: {
-    siteTitle: false,
-
-    logo: {
-      light: "/logo.png",
-      dark: "/logo.png",
-    },
-
-    nav: [
-      { text: "Dev Docs", link: "https://devdocs.bagisto.com/" },
-      { text: "Extensions", link: "https://bagisto.com/en/extensions/" },
-      { text: "Community Forum", link: "https://forums.bagisto.com/" },
-      { text: "Contact Us", link: "https://bagisto.com/en/contacts/" },
-    ],
-
-    editLink: {
-      pattern: "https://github.com/bagisto/bagisto-docs/edit/master/src/:path",
-      text: "Help us improve this page on Github.",
-    },
-
-    lastUpdated: {
-      text: "Last Updated",
-      formatOptions: {
-        dateStyle: "full",
-      },
-    },
-
-    sidebar: [
+const enSidebar =     [
       {
         text: groupLabel("Getting Started", "rocket"),
         collapsed: false,
@@ -538,7 +470,595 @@ export default defineConfig({
         text: groupLabel("Native Mobile App", "phone"),
         link: "/open-source-mobile-app/open-source-mobile-app",
       },
+
+      {
+        text: groupLabel("Extensions & Plugins", "puzzle"),
+        collapsed: false,
+        items: [
+          {
+            text: "Point of Sale (POS)",
+            link: "/plugins/pos",
+          },
+          {
+            text: "Single Product Landing Pages",
+            link: "/plugins/landing-pages",
+          },
+          {
+            text: "Pre-Orders & Booking",
+            link: "/plugins/preorder",
+          },
+          {
+            text: "Purchases & Suppliers",
+            link: "/plugins/purchases",
+          },
+          {
+            text: "Delivery Time Slots",
+            link: "/plugins/delivery-time-slots",
+          },
+          {
+            text: "Interactive Size Charts",
+            link: "/plugins/size-chart",
+          },
+          {
+            text: "Order Confirmation & WhatsApp",
+            link: "/plugins/order-confirm-whatsapp",
+          },
+          {
+            text: "Marketing Pixels & Catalog",
+            link: "/plugins/marketing-pixels",
+          },
+          {
+            text: "Local Payments & Shipping",
+            link: "/plugins/local-payments-shipping",
+          },
+          {
+            text: "Back in Stock Notifications",
+            link: "/plugins/back-in-stock",
+          },
+        ],
+      },
+    ];
+
+const arSidebar =     [
+      {
+        text: groupLabel("البداية السريعة", "rocket"),
+        collapsed: false,
+        items: [
+          { text: "مقدمة", link: "/ar/getting-started/introduction" },
+          { text: "لوحة التحكم", link: "/ar/getting-started/admin-panel" },
+          { text: "الرئيسية والإحصائيات", link: "/ar/getting-started/dashboard" },
+          {
+            text: "قائمة إعداد المتجر",
+            link: "/ar/getting-started/store-setup-checklist",
+          },
+          { text: "المهام المجدولة", link: "/ar/getting-started/scheduled-tasks" },
+          { text: "شريط الأوامر السريعة", link: "/ar/getting-started/command-palette" },
+          {
+            text: "المصادقة الثنائية (2FA)",
+            link: "/ar/authentication/2fa-authentication",
+          },
+        ],
+      },
+
+      {
+        text: featureLabel("الذكاء الاصطناعي (Magic AI)", "ai"),
+        collapsed: false,
+        items: [
+          { text: "نظرة عامة", link: "/ar/generative-ai/introduction" },
+          {
+            text: "توليد المحتوى والنصوص",
+            link: "/ar/generative-ai/generate-content",
+          },
+          {
+            text: "توليد صور المنتجات",
+            link: "/ar/generative-ai/generate-images",
+          },
+          { text: "البحث بالصور", link: "/ar/generative-ai/image-search" },
+          {
+            text: "ترجمة المراجعات والتقييمات",
+            link: "/ar/generative-ai/review-translation",
+          },
+          {
+            text: "رسالة إتمام الطلب المخصصة",
+            link: "/ar/generative-ai/checkout-message",
+          },
+        ],
+      },
+
+      {
+        text: featureLabel("المظهر والقوالب", "theme"),
+        collapsed: false,
+        items: [
+          { text: "القوالب والأقسام", link: "/ar/appearance/themes" },
+          { text: "أنواع الأقسام", link: "/ar/appearance/section-types" },
+        ],
+      },
+
+      {
+        text: groupLabel("إعداد المتجر", "settings"),
+        collapsed: false,
+        items: [
+          { text: "القنوات (المتاجر)", link: "/ar/settings/channels" },
+          { text: "اللغات", link: "/ar/settings/locales" },
+          { text: "العملات", link: "/ar/settings/currencies" },
+          { text: "أسعار الصرف", link: "/ar/settings/exchange-rates" },
+          { text: "مصادر المخزون والفروع", link: "/ar/settings/inventory-source" },
+          { text: "الضرائب", link: "/ar/settings/taxes" },
+          { text: "المستخدمون والمدراء", link: "/ar/settings/users" },
+          { text: "الأدوار والصلاحيات", link: "/ar/settings/roles" },
+          { text: "استيراد وتصدير البيانات", link: "/ar/settings/data-transfer" },
+        ],
+      },
+
+      {
+        text: groupLabel("الإعدادات العامة", "wrench"),
+        collapsed: false,
+        items: [
+          { text: "نظرة عامة", link: "/ar/configure/introduction" },
+          {
+            text: "عام",
+            collapsed: false,
+            items: [
+              { text: "عام", link: "/ar/configure/general" },
+              { text: "المحتوى", link: "/ar/configure/content" },
+              { text: "التصميم", link: "/ar/configure/design" },
+              {
+                text: "أسعار الصرف",
+                link: "/ar/configure/exchange-rates-configurations",
+              },
+              { text: "خريطة الموقع", link: "/ar/configure/sitemap" },
+              { text: "الخصوصية (GDPR)", link: "/ar/configure/gdpr" },
+            ],
+          },
+          { text: "الذكاء الاصطناعي (Magic AI)", link: "/ar/configure/magic-ai" },
+          {
+            text: "تقارير المبيعات",
+            collapsed: false,
+            items: [
+              { text: "إعدادات الشحن", link: "/ar/configure/shipping" },
+              {
+                text: "طرق الشحن",
+                link: "/ar/shipping-method/shipping-methods",
+              },
+              { text: "طرق الدفع", link: "/ar/payment-method/payment-methods" },
+              { text: "إتمام الطلب", link: "/ar/configure/checkout" },
+              { text: "إعدادات الطلبات", link: "/ar/configure/orders-settings" },
+              { text: "إعدادات الفواتير", link: "/ar/configure/invoice-settings" },
+              { text: "الضرائب", link: "/ar/configure/taxes" },
+              { text: "طلبات الإرجاع (RMA)", link: "/ar/configure/rma" },
+              { text: "حق الانسحاب الأوروبي", link: "/ar/configure/eu-withdrawals" },
+            ],
+          },
+          {
+            text: "Catalog",
+            collapsed: false,
+            items: [
+              {
+                text: "المنتجات",
+                collapsed: false,
+                items: [
+                  {
+                    text: "إعدادات المنتجات",
+                    link: "/ar/configure/configurable-choices",
+                  },
+                  { text: "واجهة المتجر", link: "/ar/configure/frontend" },
+                  {
+                    text: "صفحة عرض المنتج",
+                    link: "/ar/configure/product-view-page",
+                  },
+                  { text: "التقييمات", link: "/ar/configure/review" },
+                  { text: "المشاركة الاجتماعية", link: "/ar/configure/social-share" },
+                  { text: "صفحة سلة الشراء", link: "/ar/configure/cart-view-page" },
+                  { text: "السمات", link: "/ar/configure/attribute" },
+                  {
+                    text: "الإفصاح عن الأسعار (Omnibus)",
+                    link: "/ar/configure/omnibus",
+                  },
+                ],
+              },
+              { text: "المخزون والطلبات المسبقة", link: "/ar/configure/back-orders" },
+              { text: "بيانات مقتطفات محركات البحث", link: "/ar/configure/rich-snippets" },
+            ],
+          },
+          {
+            text: "Customer",
+            collapsed: false,
+            items: [
+              { text: "إعدادات العملاء", link: "/ar/configure/settings" },
+              { text: "العناوين", link: "/ar/configure/address" },
+              { text: "كابتشا جوجل", link: "/ar/configure/google-captcha" },
+            ],
+          },
+          {
+            text: "Email",
+            collapsed: false,
+            items: [
+              { text: "إعدادات البريد الإلكتروني", link: "/ar/configure/email-settings" },
+              { text: "الإشعارات", link: "/ar/configure/notifications" },
+            ],
+          },
+          { text: "محركات البحث", link: "/ar/configure/search-engines" },
+          { text: "إدارة الملفات", link: "/ar/configure/file-management" },
+          { text: "إدارة الذاكرة المؤقتة (Cache)", link: "/ar/configure/cache-management" },
+          { text: "حول النظام", link: "/ar/configure/about" },
+        ],
+      },
+
+      {
+        text: groupLabel("الكتالوج", "package"),
+        collapsed: false,
+        items: [
+          { text: "التصنيفات", link: "/ar/category/create-category" },
+          {
+            text: "السمات",
+            collapsed: false,
+            items: [
+              { text: "أنواع إدخال السمات", link: "/ar/attribute/attribute-input" },
+              {
+                text: "سمات المنتجات",
+                link: "/ar/attribute/product-attribute",
+              },
+              { text: "أسر السمات", link: "/ar/attribute/attribute-family" },
+            ],
+          },
+          {
+            text: "المنتجات",
+            collapsed: false,
+            items: [
+              { text: "المنتجات", link: "/ar/product-types/products" },
+              { text: "منتج بسيط (Simple)", link: "/ar/product-types/simple-product" },
+              {
+                text: "منتج متعدد الخيارات (Configurable)",
+                link: "/ar/product-types/configurable-product",
+              },
+              { text: "منتج افتراضي (Virtual)", link: "/ar/product-types/virtual-product" },
+              {
+                text: "منتج قابل للتنزيل (Downloadable)",
+                link: "/ar/product-types/downloadable-product",
+              },
+              { text: "منتج مجمع (Grouped)", link: "/ar/product-types/grouped-product" },
+              { text: "منتج حزمة (Bundle)", link: "/ar/product-types/bundle-product" },
+              { text: "منتج حجز وخدمات (Booking)", link: "/ar/product-types/booking-product" },
+            ],
+          },
+        ],
+      },
+
+      {
+        text: groupLabel("العملاء", "users"),
+        collapsed: false,
+        items: [
+          { text: "تقارير العملاء", link: "/ar/customer/create-customer" },
+          { text: "مجموعات العملاء", link: "/ar/customer/customer-group" },
+          {
+            text: "أسعار مجموعات العملاء",
+            link: "/ar/customer/customer-group-price",
+          },
+          { text: "تقييمات العملاء", link: "/ar/customer/customer-review" },
+          {
+            text: "طلبات بيانات الخصوصية (GDPR)",
+            link: "/ar/customer/gdpr-data-requests",
+          },
+          { text: "حساب العميل في المتجر", link: "/ar/customer/customer-account" },
+        ],
+      },
+
+      {
+        text: groupLabel("المبيعات", "cart"),
+        collapsed: false,
+        items: [
+          { text: "الطلبات", link: "/ar/orders/orders" },
+          { text: "إنشاء طلب جديد", link: "/ar/orders/create-order" },
+          { text: "إصدار فاتورة", link: "/ar/orders/create-invoice" },
+          { text: "إنشاء شحنة", link: "/ar/orders/create-shipment" },
+          { text: "إصدار استرداد أموال", link: "/ar/orders/create-refunds" },
+          { text: "المعاملات المالية", link: "/ar/orders/transactions" },
+          { text: "الحجوزات", link: "/ar/orders/bookings" },
+          { text: "طلبات الإرجاع (RMA)", link: "/ar/orders/rma" },
+          { text: "حق الانسحاب الأوروبي", link: "/ar/orders/eu-withdrawal" },
+        ],
+      },
+
+      {
+        text: groupLabel("التسويق", "megaphone"),
+        collapsed: false,
+        items: [
+          { text: "قواعد أسعار الكتالوج", link: "/ar/marketing/catalog-rules" },
+          { text: "قواعد سلة الشراء والكوبونات", link: "/ar/marketing/cart-rules" },
+          { text: "قوالب البريد الإلكتروني", link: "/ar/marketing/email-templates" },
+          { text: "الأحداث والمناسبات", link: "/ar/marketing/events" },
+          { text: "الحملات التسويقية", link: "/ar/marketing/campaigns" },
+          {
+            text: "اشتراكات النشرة البريدية",
+            link: "/ar/marketing/newsletter-subscription",
+          },
+          { text: "إعادة توجيه الروابط (URL Rewrites)", link: "/ar/marketing/url-rewrite" },
+          { text: "كلمات البحث الشائعة", link: "/ar/marketing/search-terms" },
+          { text: "مرادفات البحث", link: "/ar/marketing/search-synonyms" },
+          { text: "خرائط الموقع", link: "/ar/marketing/sitemaps" },
+        ],
+      },
+
+      {
+        text: groupLabel("إدارة المحتوى (CMS)", "file"),
+        collapsed: false,
+        items: [{ text: "صفحات الموقع", link: "/ar/cms/create-cms" }],
+      },
+
+      {
+        text: groupLabel("التقارير", "chart"),
+        collapsed: false,
+        items: [
+          { text: "تقارير المبيعات", link: "/ar/reporting/sales-report" },
+          { text: "تقارير العملاء", link: "/ar/reporting/customers-report" },
+          { text: "المنتجات", link: "/ar/reporting/product-report" },
+        ],
+      },
+
+      {
+        text: groupLabel("سوق الشركات (B2B Marketplace)", "store"),
+        collapsed: false,
+        items: [
+          { text: "مقدمة", link: "/ar/b2b-marketplace/introduction" },
+          {
+            text: "طلبات عروض الأسعار (RFQ)",
+            link: "/ar/b2b-marketplace/request-for-quotes",
+          },
+          {
+            text: "التواصل بين المشتري والبائع",
+            link: "/ar/b2b-marketplace/buyer-seller-communication",
+          },
+          {
+            text: "صفحة المورد الخاصة",
+            link: "/ar/b2b-marketplace/supplier-microsite",
+          },
+          { text: "فرص الشراء والشراء المباشر", link: "/ar/b2b-marketplace/buying-leads" },
+          {
+            text: "إدارة التقييمات",
+            link: "/ar/b2b-marketplace/b2b-marketplace-review",
+          },
+        ],
+      },
+
+      {
+        text: groupLabel("المتاجر المتعددة (Multi-Tenant SaaS)", "cloud"),
+        collapsed: false,
+        items: [
+          {
+            text: "مقدمة",
+            link: "/ar/multi-tenant-ecommerce/introduction",
+          },
+          {
+            text: "إدارة السوبر أدمن",
+            link: "/ar/multi-tenant-ecommerce/super-admin-management",
+          },
+          {
+            text: "إدارة المتاجر والمستأجرين",
+            link: "/ar/multi-tenant-ecommerce/tenant-management",
+          },
+          {
+            text: "ربط النطاقات الخاصة (CNAME)",
+            link: "/ar/multi-tenant-ecommerce/cname-mapping",
+          },
+        ],
+      },
+
+      {
+        text: groupLabel("منصة تجارة الشركات (B2B Suite)", "briefcase"),
+        collapsed: false,
+        items: [
+          {
+            text: "مقدمة",
+            link: "/ar/b2b-ecommerce-platform/introduction",
+          },
+          {
+            text: "الإعدادات",
+            link: "/ar/b2b-ecommerce-platform/configuration",
+          },
+          {
+            text: "تسجيل الشركات",
+            link: "/ar/b2b-ecommerce-platform/company-registration",
+          },
+          {
+            text: "سمات الشركات",
+            link: "/ar/b2b-ecommerce-platform/company-attributes",
+          },
+          {
+            text: "صلاحيات وأدوار الموظفين",
+            link: "/ar/b2b-ecommerce-platform/role-based-permissions",
+          },
+          {
+            text: "ممثلو المبيعات",
+            link: "/ar/b2b-ecommerce-platform/sales-representative",
+          },
+          {
+            text: "كتالوج الشركات المخصص",
+            link: "/ar/b2b-ecommerce-platform/company-catalog",
+          },
+          {
+            text: "الائتمان وتسهيلات الدفع",
+            link: "/ar/b2b-ecommerce-platform/company-credit",
+          },
+          {
+            text: "قوائم الطلب المسبق",
+            link: "/ar/b2b-ecommerce-platform/requisition-lists",
+          },
+          { text: "الطلب السريع بالأكواد", link: "/ar/b2b-ecommerce-platform/quick-order" },
+          {
+            text: "طلب عرض سعر",
+            link: "/ar/b2b-ecommerce-platform/request-for-quote",
+          },
+          {
+            text: "إدارة عروض الأسعار والتفاوض",
+            link: "/ar/b2b-ecommerce-platform/quotation-handling",
+          },
+          {
+            text: "أوامر الشراء (PO)",
+            link: "/ar/b2b-ecommerce-platform/purchase-orders",
+          },
+        ],
+      },
+
+      {
+        text: groupLabel("تطبيقات الهاتف الذكي", "phone"),
+        link: "/ar/open-source-mobile-app/open-source-mobile-app",
+      },
+
+      {
+        text: groupLabel("الإضافات والأنظمة المتقدمة", "puzzle"),
+        collapsed: false,
+        items: [
+          {
+            text: "نظام نقاط البيع والكاشير (POS)",
+            link: "/ar/plugins/pos",
+          },
+          {
+            text: "صفحات الهبوط المخصصة (Landing Pages)",
+            link: "/ar/plugins/landing-pages",
+          },
+          {
+            text: "الحجز والطلب المسبق (Pre-Orders)",
+            link: "/ar/plugins/preorder",
+          },
+          {
+            text: "المشتريات وإدارة الموردين",
+            link: "/ar/plugins/purchases",
+          },
+          {
+            text: "مواعيد وفتحات التوصيل (Time Slots)",
+            link: "/ar/plugins/delivery-time-slots",
+          },
+          {
+            text: "دليل وجداول المقاسات (Size Charts)",
+            link: "/ar/plugins/size-chart",
+          },
+          {
+            text: "تأكيد الطلبات ورسائل الواتساب",
+            link: "/ar/plugins/order-confirm-whatsapp",
+          },
+          {
+            text: "بكسلات التتبع وكتالوج ميتا",
+            link: "/ar/plugins/marketing-pixels",
+          },
+          {
+            text: "بوابات الدفع والشحن المحلية",
+            link: "/ar/plugins/local-payments-shipping",
+          },
+          {
+            text: "تنبيهات توفر المخزون (Back in Stock)",
+            link: "/ar/plugins/back-in-stock",
+          },
+        ],
+      },
+    ];
+
+export default defineConfig({
+  srcDir: "./src",
+
+  locales: {
+    root: {
+      label: "English",
+      lang: "en-US",
+      title: "Bagisto User Documentation",
+      description: "Bagisto User Documentation",
+      themeConfig: {
+        nav: [
+          { text: "Dev Docs", link: "https://devdocs.bagisto.com/" },
+          { text: "Extensions", link: "https://bagisto.com/en/extensions/" },
+          { text: "Community Forum", link: "https://forums.bagisto.com/" },
+          { text: "Contact Us", link: "https://bagisto.com/en/contacts/" },
+        ],
+        editLink: {
+          pattern: "https://github.com/AhmedNabil1992/bagisto-user-guide/edit/master/src/:path",
+          text: "Help us improve this page on Github.",
+        },
+        lastUpdated: {
+          text: "Last Updated",
+          formatOptions: {
+            dateStyle: "full",
+          },
+        },
+        sidebar: enSidebar,
+      },
+    },
+    ar: {
+      label: "العربية",
+      lang: "ar-SA",
+      dir: "rtl",
+      link: "/ar/",
+      title: "دليل مستخدم باجيستو",
+      description: "دليل مستخدم منصة باجيستو للتجارة الإلكترونية",
+      themeConfig: {
+        nav: [
+          { text: "توثيق المطورين", link: "https://devdocs.bagisto.com/" },
+          { text: "الإضافات", link: "https://bagisto.com/en/extensions/" },
+          { text: "المنتدى", link: "https://forums.bagisto.com/" },
+          { text: "اتصل بنا", link: "https://bagisto.com/en/contacts/" },
+        ],
+        editLink: {
+          pattern: "https://github.com/AhmedNabil1992/bagisto-user-guide/edit/master/src/:path",
+          text: "ساعدنا في تحسين هذه الصفحة على Github.",
+        },
+        lastUpdated: {
+          text: "آخر تحديث",
+          formatOptions: {
+            dateStyle: "full",
+          },
+        },
+        docFooter: {
+          prev: "الصفحة السابقة",
+          next: "الصفحة التالية",
+        },
+        outline: {
+          label: "محتويات الصفحة",
+        },
+        returnToTopLabel: "العودة إلى الأعلى",
+        sidebarMenuLabel: "القائمة",
+        darkModeSwitchLabel: "المظهر",
+        lightModeSwitchTitle: "التبديل إلى الوضع الفاتح",
+        darkModeSwitchTitle: "التبديل إلى الوضع الداكن",
+        sidebar: arSidebar,
+      },
+    },
+  },
+
+  vite: {
+    server: {
+      host: "0.0.0.0",
+    },
+    plugins: [sitemapPlugin()],
+  },
+
+  head: [
+    [
+      "meta",
+      {
+        name: "google-site-verification",
+        content: "elxsIWt5ea-SmaO99B5RD3z_35WCl-hLJejTZEfVu4I",
+      },
     ],
+    ["link", { rel: "icon", type: "image/png", href: "/favicon.ico" }],
+    [
+      "script",
+      {},
+      `window.chatbotConfig = { url: "https://ask.bagisto.com:5000/chat" };`,
+    ],
+    [
+      "script",
+      {
+        src: "https://bagisto.github.io/ai-chatbot/chatbot.js",
+        async: true,
+      },
+    ],
+  ],
+
+  themeConfig: {
+    siteTitle: false,
+
+    logo: {
+      light: "/logo.png",
+      dark: "/logo.png",
+    },
 
     outline: {
       level: "deep",
@@ -556,6 +1076,33 @@ export default defineConfig({
 
     search: {
       provider: "local",
+      options: {
+        locales: {
+          ar: {
+            translations: {
+              button: {
+                buttonText: "بحث في الدليل",
+                buttonAriaLabel: "بحث في الدليل",
+              },
+              modal: {
+                displayDetails: "عرض التفاصيل",
+                resetButtonTitle: "إعادة ضبط البحث",
+                backButtonTitle: "إغلاق البحث",
+                noResultsText: "لا توجد نتائج مطابقة لـ",
+                footer: {
+                  selectText: "للاختيار",
+                  selectKeyAriaLabel: "إدخال",
+                  navigateText: "للتنقل",
+                  navigateUpKeyAriaLabel: "سهم لأعلى",
+                  navigateDownKeyAriaLabel: "سهم لأسفل",
+                  closeText: "للإغلاق",
+                  closeKeyAriaLabel: "هروب",
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
 
@@ -586,7 +1133,6 @@ export default defineConfig({
   },
 
   configResolved(config) {
-    // Generate sitemap for dev server in public folder
     const publicDir = path.join(process.cwd(), "src/public");
     if (!fs.existsSync(publicDir)) {
       fs.mkdirSync(publicDir, { recursive: true });
