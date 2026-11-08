@@ -108,6 +108,53 @@ const enSidebar =     [
       },
 
       {
+        text: groupLabel("Extensions & Plugins", "puzzle"),
+        collapsed: false,
+        items: [
+          {
+            text: "Point of Sale (POS)",
+            link: "/plugins/pos",
+          },
+          {
+            text: "Single Product Landing Pages",
+            link: "/plugins/landing-pages",
+          },
+          {
+            text: "Pre-Orders & Booking",
+            link: "/plugins/preorder",
+          },
+          {
+            text: "Purchases & Suppliers",
+            link: "/plugins/purchases",
+          },
+          {
+            text: "Delivery Time Slots",
+            link: "/plugins/delivery-time-slots",
+          },
+          {
+            text: "Interactive Size Charts",
+            link: "/plugins/size-chart",
+          },
+          {
+            text: "Order Confirmation & WhatsApp",
+            link: "/plugins/order-confirm-whatsapp",
+          },
+          {
+            text: "Marketing Pixels & Catalog",
+            link: "/plugins/marketing-pixels",
+          },
+          {
+            text: "Local Payments & Shipping",
+            link: "/plugins/local-payments-shipping",
+          },
+          {
+            text: "Back in Stock Notifications",
+            link: "/plugins/back-in-stock",
+          },
+        ],
+      },
+
+      {
         text: featureLabel("Generative AI", "ai"),
         collapsed: false,
         items: [
@@ -470,53 +517,6 @@ const enSidebar =     [
         text: groupLabel("Native Mobile App", "phone"),
         link: "/open-source-mobile-app/open-source-mobile-app",
       },
-
-      {
-        text: groupLabel("Extensions & Plugins", "puzzle"),
-        collapsed: false,
-        items: [
-          {
-            text: "Point of Sale (POS)",
-            link: "/plugins/pos",
-          },
-          {
-            text: "Single Product Landing Pages",
-            link: "/plugins/landing-pages",
-          },
-          {
-            text: "Pre-Orders & Booking",
-            link: "/plugins/preorder",
-          },
-          {
-            text: "Purchases & Suppliers",
-            link: "/plugins/purchases",
-          },
-          {
-            text: "Delivery Time Slots",
-            link: "/plugins/delivery-time-slots",
-          },
-          {
-            text: "Interactive Size Charts",
-            link: "/plugins/size-chart",
-          },
-          {
-            text: "Order Confirmation & WhatsApp",
-            link: "/plugins/order-confirm-whatsapp",
-          },
-          {
-            text: "Marketing Pixels & Catalog",
-            link: "/plugins/marketing-pixels",
-          },
-          {
-            text: "Local Payments & Shipping",
-            link: "/plugins/local-payments-shipping",
-          },
-          {
-            text: "Back in Stock Notifications",
-            link: "/plugins/back-in-stock",
-          },
-        ],
-      },
     ];
 
 const arSidebar =     [
@@ -536,6 +536,53 @@ const arSidebar =     [
           {
             text: "المصادقة الثنائية (2FA)",
             link: "/ar/authentication/2fa-authentication",
+          },
+        ],
+      },
+
+      {
+        text: groupLabel("الإضافات والأنظمة المتقدمة", "puzzle"),
+        collapsed: false,
+        items: [
+          {
+            text: "نظام نقاط البيع والكاشير (POS)",
+            link: "/ar/plugins/pos",
+          },
+          {
+            text: "صفحات الهبوط المخصصة (Landing Pages)",
+            link: "/ar/plugins/landing-pages",
+          },
+          {
+            text: "الحجز والطلب المسبق (Pre-Orders)",
+            link: "/ar/plugins/preorder",
+          },
+          {
+            text: "المشتريات وإدارة الموردين",
+            link: "/ar/plugins/purchases",
+          },
+          {
+            text: "مواعيد وفتحات التوصيل (Time Slots)",
+            link: "/ar/plugins/delivery-time-slots",
+          },
+          {
+            text: "دليل وجداول المقاسات (Size Charts)",
+            link: "/ar/plugins/size-chart",
+          },
+          {
+            text: "تأكيد الطلبات ورسائل الواتساب",
+            link: "/ar/plugins/order-confirm-whatsapp",
+          },
+          {
+            text: "بكسلات التتبع وكتالوج ميتا",
+            link: "/ar/plugins/marketing-pixels",
+          },
+          {
+            text: "بوابات الدفع والشحن المحلية",
+            link: "/ar/plugins/local-payments-shipping",
+          },
+          {
+            text: "تنبيهات توفر المخزون (Back in Stock)",
+            link: "/ar/plugins/back-in-stock",
           },
         ],
       },
@@ -903,53 +950,6 @@ const arSidebar =     [
         text: groupLabel("تطبيقات الهاتف الذكي", "phone"),
         link: "/ar/open-source-mobile-app/open-source-mobile-app",
       },
-
-      {
-        text: groupLabel("الإضافات والأنظمة المتقدمة", "puzzle"),
-        collapsed: false,
-        items: [
-          {
-            text: "نظام نقاط البيع والكاشير (POS)",
-            link: "/ar/plugins/pos",
-          },
-          {
-            text: "صفحات الهبوط المخصصة (Landing Pages)",
-            link: "/ar/plugins/landing-pages",
-          },
-          {
-            text: "الحجز والطلب المسبق (Pre-Orders)",
-            link: "/ar/plugins/preorder",
-          },
-          {
-            text: "المشتريات وإدارة الموردين",
-            link: "/ar/plugins/purchases",
-          },
-          {
-            text: "مواعيد وفتحات التوصيل (Time Slots)",
-            link: "/ar/plugins/delivery-time-slots",
-          },
-          {
-            text: "دليل وجداول المقاسات (Size Charts)",
-            link: "/ar/plugins/size-chart",
-          },
-          {
-            text: "تأكيد الطلبات ورسائل الواتساب",
-            link: "/ar/plugins/order-confirm-whatsapp",
-          },
-          {
-            text: "بكسلات التتبع وكتالوج ميتا",
-            link: "/ar/plugins/marketing-pixels",
-          },
-          {
-            text: "بوابات الدفع والشحن المحلية",
-            link: "/ar/plugins/local-payments-shipping",
-          },
-          {
-            text: "تنبيهات توفر المخزون (Back in Stock)",
-            link: "/ar/plugins/back-in-stock",
-          },
-        ],
-      },
     ];
 
 export default defineConfig({
@@ -963,8 +963,23 @@ export default defineConfig({
       description: "Bagisto User Documentation",
       themeConfig: {
         nav: [
+          { text: "Point of Sale (POS)", link: "/plugins/pos" },
+          {
+            text: "Extensions & Systems",
+            items: [
+              { text: "Point of Sale (POS)", link: "/plugins/pos" },
+              { text: "Single Product Landing Pages", link: "/plugins/landing-pages" },
+              { text: "Purchases & Suppliers", link: "/plugins/purchases" },
+              { text: "Pre-Orders & Booking", link: "/plugins/preorder" },
+              { text: "Delivery Time Slots", link: "/plugins/delivery-time-slots" },
+              { text: "Interactive Size Charts", link: "/plugins/size-chart" },
+              { text: "Order Confirmation & WhatsApp", link: "/plugins/order-confirm-whatsapp" },
+              { text: "Marketing Pixels & Catalog", link: "/plugins/marketing-pixels" },
+              { text: "Local Payments & Shipping", link: "/plugins/local-payments-shipping" },
+              { text: "Back in Stock Notifications", link: "/plugins/back-in-stock" },
+            ],
+          },
           { text: "Dev Docs", link: "https://devdocs.bagisto.com/" },
-          { text: "Extensions", link: "https://bagisto.com/en/extensions/" },
           { text: "Community Forum", link: "https://forums.bagisto.com/" },
           { text: "Contact Us", link: "https://bagisto.com/en/contacts/" },
         ],
@@ -990,8 +1005,23 @@ export default defineConfig({
       description: "دليل مستخدم منصة باجيستو للتجارة الإلكترونية",
       themeConfig: {
         nav: [
+          { text: "نظام نقاط البيع والكاشير (POS)", link: "/ar/plugins/pos" },
+          {
+            text: "الأنظمة والإضافات المتقدمة",
+            items: [
+              { text: "نظام نقاط البيع والكاشير (POS)", link: "/ar/plugins/pos" },
+              { text: "صفحات الهبوط المخصصة (Funnels)", link: "/ar/plugins/landing-pages" },
+              { text: "المشتريات وإدارة الموردين", link: "/ar/plugins/purchases" },
+              { text: "الحجز والطلب المسبق (Pre-Orders)", link: "/ar/plugins/preorder" },
+              { text: "مواعيد وفتحات التوصيل (Time Slots)", link: "/ar/plugins/delivery-time-slots" },
+              { text: "دليل وجداول المقاسات (Size Chart)", link: "/ar/plugins/size-chart" },
+              { text: "تأكيد الطلبات ورسائل الواتساب", link: "/ar/plugins/order-confirm-whatsapp" },
+              { text: "بكسلات التتبع وكتالوج ميتا", link: "/ar/plugins/marketing-pixels" },
+              { text: "بوابات الدفع والشحن المحلية", link: "/ar/plugins/local-payments-shipping" },
+              { text: "تنبيهات توفر المخزون (Back in Stock)", link: "/ar/plugins/back-in-stock" },
+            ],
+          },
           { text: "توثيق المطورين", link: "https://devdocs.bagisto.com/" },
-          { text: "الإضافات", link: "https://bagisto.com/en/extensions/" },
           { text: "المنتدى", link: "https://forums.bagisto.com/" },
           { text: "اتصل بنا", link: "https://bagisto.com/en/contacts/" },
         ],

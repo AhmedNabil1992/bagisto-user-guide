@@ -69,15 +69,21 @@ The sidebar lists the parts of the admin panel. Click an item to open it; its pa
 | Menu | What you manage there | In this guide |
 |---|---|---|
 | **Dashboard** | A summary of sales, orders, customers and stock | [Dashboard](./dashboard.md) |
-| **Sales** | Orders, shipments, invoices, refunds, transactions, bookings, RMA and EU withdrawals | [Sales](../orders/orders.md) |
-| **Catalog** | Products, categories, attributes and attribute families | [Catalog](../category/create-category.md) |
+| **Back in Stock (Notify)** | Restock notification subscriptions and automated dispatch logs | [Back in Stock](../plugins/back-in-stock.md) |
+| **Sales** | Orders, shipments, invoices, refunds, transactions, bookings, RMA, WhatsApp order confirmation, and domestic carrier manifests | [Sales](../orders/orders.md) / [Order Confirmation](../plugins/order-confirm-whatsapp.md) |
+| **Delivery Time Slots** | Delivery calendar rules, daily capacities, and customer time slots | [Delivery Time Slots](../plugins/delivery-time-slots.md) |
+| **Purchases** | Supplier directories, purchase invoices, warehouse stock intake, and supplier payments | [Purchases & Suppliers](../plugins/purchases.md) |
+| **Pre-Orders** | Advance bookings, availability dates, and partial deposits | [Pre-Orders](../plugins/preorder.md) |
+| **Size Chart** | Measurement charts, sizing popups, and category assignment | [Size Charts](../plugins/size-chart.md) |
+| **Point of Sale (POS)** | Physical retail cashier terminal, barcode scanning, shift reconciliation, thermal receipts, and cashboxes | [Point of Sale (POS)](../plugins/pos.md) |
+| **Catalog** | Products, categories, attributes, attribute families, and custom landing page funnels | [Catalog](../category/create-category.md) / [Landing Funnels](../plugins/landing-pages.md) |
 | **Customers** | Customers, groups, reviews and GDPR data requests | [Customers](../customer/create-customer.md) |
 | **CMS** | Content pages | [CMS](../cms/create-cms.md) |
-| **Marketing** | Promotions, communications, and search and SEO | [Marketing](../marketing/cart-rules.md) |
-| **Reporting** | Sales, customer and product reports | [Reporting](../reporting/sales-report.md) |
+| **Marketing** | Promotions, communications, Meta/TikTok/Snapchat tracking pixels, and Meta Catalog XML feeds | [Marketing](../marketing/cart-rules.md) / [Marketing Pixels](../plugins/marketing-pixels.md) |
+| **Reporting** | Sales, customer, product, and purchase inventory cost reports | [Reporting](../reporting/sales-report.md) |
 | **Appearance** | Themes and their sections | [Themes & Sections](../appearance/themes.md) |
 | **Settings** | Locales, currencies, exchange rates, inventory sources, channels, users, roles, taxes and data transfer | [Store setup](../settings/channels.md) |
-| **Configure** | Store-wide settings | [Configure](../configure/introduction.md) |
+| **Configure** | Store-wide configurations, local payment gateways (Vodafone Cash, InstaPay, Paymob, Kashier), and domestic shipping integrations (Bosta, Aramex, Mylerz, J&T) | [Configure](../configure/introduction.md) / [Local Payments & Shipping](../plugins/local-payments-shipping.md) |
 
 - You see only the items your [role](../settings/roles.md) allows.
 - The arrow button at the bottom of the sidebar shrinks it to icons, to give pages more room. Click it again to expand it. Your choice is remembered in this browser.
